@@ -3,7 +3,7 @@ import Logo from '/home/rem/Desktop/projects/frontend/DevScope/DevScope/src/asse
 
 export default function NavBar() {
     return (
-        <div className='bg-surface w-screen flex items-center justify-between px-6 py-5 mb-12'>
+        <div className='bg-surface w-screen flex items-center justify-between px-6 py-5 mb-12 sticky top-0'>
             <div className="flex items-center gap-5">
                 <div>
                     <img src={Logo} alt="" className='w-10 object-contain' />
