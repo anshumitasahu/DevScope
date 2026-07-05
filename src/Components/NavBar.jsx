@@ -22,7 +22,6 @@ export default function NavBar() {
                     </li>
 
                     <li>Features</li>
-                    <li>Compare</li>
                     <li>GitHub</li>
                 </ul>
                 <NavLink to="/Analyzer" className='rounded-lg bg-primary px-5 py-2 text-white hover:bg-primary-hover transition'>
