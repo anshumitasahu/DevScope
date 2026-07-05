@@ -1,5 +1,4 @@
 import { useState } from "react";
-import HeroImage from '/home/rem/Desktop/projects/frontend/DevScope/DevScope/src/assets/HeadImg.png';
 
 export default function Home() {
     const [username, setUsername] = useState("");
@@ -39,7 +38,7 @@ export default function Home() {
                 </div>
 
                 <div className='w-xl'>
-                    <img src={HeroImage} alt="" />
+                    <img src="/HeadImg.png" alt="" />
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from '/home/rem/Desktop/projects/frontend/DevScope/DevScope/src/assets/Logo-T-C.png'
+import Logo from '../assets/Logo-T-C.png'
 
 export default function NavBar() {
     return (
