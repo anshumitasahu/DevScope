@@ -55,6 +55,11 @@ export default function Home() {
                     placeholder="GitHub username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    onKeyDown={(e) => {
+                        if(e.key == "Enter") {
+                            fetchProfile();
+                        }
+                    }}  
                     className="outline-0 text-black px-4 py-2"
                 />
 
