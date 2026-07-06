@@ -1,24 +1,31 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
     const [username, setUsername] = useState("");
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
 
-    async function fetchProfile() {
-        try {
-            const response = await fetch(
-                `https://api.github.com/users/${username}`
-            );
+    function fetchProfile() {
+        // try {
+        //     const response = await fetch(
+        //         `https://api.github.com/users/${username}`
+        //     );
 
-            if (!response.ok) {
-                throw new Error("User not found");
-            }
+        //     if (!response.ok) {
+        //         throw new Error("User not found");
+        //     }
 
-            const data = await response.json();
-            setUser(data);
-        } catch (err) {
-            console.error(err);
+        //     const data = await response.json();
+        //     setUser(data);
+        // } catch (err) {
+        //     console.error(err);
+        // }
+        if(!username) {
+            alert("give the username");
+            return;
         }
+        navigate(`/Analyzer?name=${username}`)
     }
 
     return (

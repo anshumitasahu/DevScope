@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LanguageChart from "./Piechart";
+import { useSearchParams } from "react-router-dom";
 
 export default function Analyzer() {
     const [username, setUsername] = useState("");
@@ -8,11 +9,22 @@ export default function Analyzer() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [languageData, setLanguageData] = useState([]);
+    const [queryparam] = useSearchParams();
+    const query = queryparam.get("name");
+    const [isTyping, setIsTyping] = useState(false);
 
     const token = import.meta.env.VITE_GITHUB_TOKEN;
     const headers = {
         Authorization: `Bearer ${token}`
     }
+
+    useEffect(() => {
+        if (query && !isTyping) {
+            console.log(query);
+            setUsername(query);
+            fetchGitHubData();
+        }
+    }, [query, username])
 
     async function fetchGitHubData() {
         if (!username.trim()) return;
@@ -126,7 +138,10 @@ export default function Analyzer() {
                     type="text"
                     placeholder="GitHub username"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => {
+                        setIsTyping(true);
+                        setUsername(e.target.value);
+                    }}
                     className="outline-0 text-black px-4 py-2"
                     onKeyDown={(e) => {
                         if (e.key === "Enter") {
