@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from '../assets/Logo-T-C.png'
+import Logo from '/Logo-T-C.png'
 
 export default function NavBar() {
     return (
@@ -24,7 +24,7 @@ export default function NavBar() {
                     <li>Features</li>
                     <li>GitHub</li>
                 </ul>
-                <NavLink to="/Analyzer" className='rounded-lg bg-primary px-5 py-2 text-white hover:bg-primary-hover transition'>
+                <NavLink to="/Analyzer" className='rounded-full border-3 border-blue-400 px-5 py-2 text-white hover:border-blue-300 transition'>
                     Analyzer
                 </NavLink>
             </div>

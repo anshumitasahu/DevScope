@@ -170,8 +170,7 @@ export default function Analyzer() {
                                 <h2 className="text-2xl font-bold">{user.name} </h2>
                                 <h2 className="text-text-muted">@{user.login}</h2>
                                 <p>{user.bio}</p>
-                                <p className="mt-1">Location: {user.location}</p>
-                                <p>Created Account On: {new Date(user.created_at).toLocaleDateString("en-US", {
+                                <p>Joined On: {new Date(user.created_at).toLocaleDateString("en-US", {
                                     month: "long",
                                     day: "numeric",
                                     year: "numeric",
