@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import LanguageChart from "./Piechart";
 import { useSearchParams } from "react-router-dom";
+import { StarIcon, GitForkIcon, CodeIcon, GitBranchIcon, TrophyIcon } from "@phosphor-icons/react";
+
 
 export default function Analyzer() {
     const [username, setUsername] = useState("");
@@ -124,25 +126,23 @@ export default function Analyzer() {
     };
 
     return (
-        <div className="flex flex-col items-center px-8">
-            <div className="flex flex-col items-center gap-1 mb-6">
+        <div className="flex flex-col items-center px-8 pt-5">
+            <div className="flex flex-col items-center gap-1 mb-14">
                 <h1 className="font-semibold text-5xl">
-                    GitHub Profile <span className="text-primary">Analyzer</span>
+                    <span className="text-blue-400"> GitHub Profile</span> <span className="text-primary">Analyzer</span>
                 </h1>
-                <p className="text-text-muted">
-                    Enter a GitHub Username to analyze their profile and repositories
-                </p>
+                <p className="text-text-muted text-sm"> Enter a GitHub Username to analyze their profile and repositories </p>
             </div>
-            <div className="bg-amber-50 w-fit rounded-md mb-10">
+            <div className="bg-white w-fit rounded-full mb-10 focus-within:ring-8 focus-within:ring-primary/20">
                 <input
                     type="text"
                     placeholder="GitHub username"
                     value={username}
+                    className="outline-0 text-black px-4 py-2 w-94"
                     onChange={(e) => {
                         setIsTyping(true);
                         setUsername(e.target.value);
                     }}
-                    className="outline-0 text-black px-4 py-2"
                     onKeyDown={(e) => {
                         if (e.key === "Enter") {
                             fetchGitHubData();
@@ -150,37 +150,26 @@ export default function Analyzer() {
                     }}
                 />
 
-                <button onClick={fetchGitHubData} disabled={loading} className="text-white bg-primary px-4 py-2 rounded-md hover:cursor-pointer">
+                <button onClick={fetchGitHubData} disabled={loading} className="text-white bg-primary px-4 py-2 rounded-full hover:cursor-pointer">
                     {loading ? "Analyzing..." : "Analyze"}
                 </button>
             </div>
 
             {user && (
-                <div className="w-full mb-10">
-                    <div className="mb-2 font-semibold text-xl">
-                        Profile Summary
-                    </div>
-                    <div className="flex gap-5 bg-card border-2 border-border px-4 py-4 rounded-lg">
-
+                <div className="flex gap-8 mt-10 mb-20 py-10 w-full items-center border-y border-y-blue-400/30">
+                    <img src={user.avatar_url} alt={user.login} className="rounded-full h-44 w-44 object-cover" />
+                    <div className="flex flex-col gap-4">
                         <div>
-                            <img src={user.avatar_url} alt={user.login} width={100} className="rounded-full h-36 w-36 object-cover" />
+                            <h2 className="text-3xl font-bold"> {user.name || user.login} </h2>
+                            <p className="text-text-secondary">@{user.login} </p>
                         </div>
-                        <div className="flex flex-col gap-4">
-                            <div>
-                                <h2 className="text-2xl font-bold">{user.name} </h2>
-                                <h2 className="text-text-muted">@{user.login}</h2>
-                                <p>{user.bio}</p>
-                                <p>Joined On: {new Date(user.created_at).toLocaleDateString("en-US", {
-                                    month: "long",
-                                    day: "numeric",
-                                    year: "numeric",
-                                })}</p>
-                            </div>
-                            <div className="flex gap-4">
-                                <p className="border-r-white border-r-2 pr-4">{user.followers} Followers</p>
-                                <p className="border-r-white border-r-2 pr-4">{user.public_repos} Public Repos</p>
-                                <p className="border-r-white border-r-2 pr-4">{user.following} Following</p>
-                            </div>
+                        <p className="max-w-5xl">{user.bio || "No bio provided"} </p>
+                        <div className="flex gap-3 text-sm text-text-muted">
+                            <p>{user.followers} Followers</p>
+                            <p>•</p>
+                            <p>{user.following} Following</p>
+                            <p>•</p>
+                            <p>{user.public_repos} Repositories</p>
                         </div>
                     </div>
                 </div>
@@ -188,88 +177,54 @@ export default function Analyzer() {
 
             {user && (
                 <div className="w-full">
-                    <div className="mb-10">
-                        <div className="mb-2 font-semibold text-xl">
-                            Repositories Statistics
-                        </div>
-                        <div className="flex gap-8">
-
-                            <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                <p className="text-text-muted mb-2">
-                                    Public Repositories
-                                </p>
-                                <p className="font-bold text-xl">
-                                    {user.public_repos}
-                                </p>
+                    <div className="mb-20">
+                        <div className="mb-2 font-semibold text-xl"> Repository Insights</div>
+                        <div className="grid grid-cols-4 gap-6">
+                            <div className="flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                                <StarIcon size={28} color="#3584e4" weight="duotone" />
+                                <div>
+                                    <p className="text-text-muted mb-2">Total Stars</p>
+                                    <p className="font-bold text-xl">{totalStars}</p>
+                                </div>
                             </div>
-
-                            <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                <p className="text-text-muted mb-2">
-                                    Total Stars
-                                </p>
-                                <p className="font-bold text-xl">
-                                    {totalStars}
-                                </p>
+                            <div className=" flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                                <GitForkIcon size={28} color="#3584e4" weight="duotone" />
+                                <div>
+                                    <p className="text-text-muted mb-2">Total Forks</p>
+                                    <p className="font-bold text-xl">{totalForks}</p>
+                                </div>
                             </div>
-
-                            <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                <p className="text-text-muted mb-2">
-                                    Total Forks
-                                </p>
-                                <p className="font-bold text-xl">
-                                    {totalForks}
-                                </p>
+                            <div className="flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                                <CodeIcon size={28} color="#3584e4" />
+                                <div>
+                                    <p className="text-text-muted mb-2">Languages Used</p>
+                                    <p className="font-bold text-xl">{language}</p>
+                                </div>
                             </div>
-
-                            <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                <p className="text-text-muted mb-2">
-                                    Languages Used
-                                </p>
-                                <p className="font-bold text-xl">
-                                    {language}
-                                </p>
-                            </div>
-
-                            <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                <p className="text-text-muted mb-2">
-                                    Top Repository
-                                </p>
-                                <p className="font-bold text-xl">
-                                    {topRepo ? `${topRepo.name} (${topRepo.stargazers_count} ⭐)` : "--"}
-                                </p>
+                            <div className="flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                                <TrophyIcon size={28} color="#3584e4" weight="duotone" />
+                                <div>
+                                    <p className="text-text-muted mb-2">  Top Repository</p>
+                                    <p className="font-bold text-xl">{topRepo ? `${topRepo.name}` : "--"}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div className="mb-2 font-semibold text-xl">
-                            Contribution Insights
-                        </div>
+                        <div className="mb-2 font-semibold text-xl">Contribution Insights</div>
                         <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
                             <div className="grid grid-rows gap-6">
                                 <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                    <p className="text-text-muted mb-2">
-                                        Account Age
-                                    </p>
-                                    <p className="font-bold text-xl">
-                                        {years} years {months} months
-                                    </p>
+                                    <p className="text-text-muted mb-2">Account Age</p>
+                                    <p className="font-bold text-xl">{years} years {months} months</p>
                                 </div>
-
                                 <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
-                                    <p className="text-text-muted mb-2">
-                                        Average Stars Per Repository
-                                    </p>
-                                    <p className="font-bold text-xl">
-                                        {averageStars}
-                                    </p>
+                                    <p className="text-text-muted mb-2">Average Stars Per Repository</p>
+                                    <p className="font-bold text-xl">{averageStars} </p>
                                 </div>
                                 <div className="bg-card border-border border-3 px-4 py-4 rounded-lg h-fit">
-                                    <p className="text-text-muted mb-2">
-                                        Average Forks Per Repository
-                                    </p>
-                                    <p className="font-bold text-xl">
-                                        {averageForks}
-                                    </p>
+                                    <p className="text-text-muted mb-2">Average Forks Per Repository</p>
+                                    <p className="font-bold text-xl">{averageForks}</p>
                                 </div>
                             </div>
                             <div className="bg-card border-border border-3 px-3 py-4 rounded-lg w-full h-fit">
@@ -277,7 +232,6 @@ export default function Analyzer() {
                                 <LanguageChart data={languageData} />
                             </div>
                             <div>
-
                             </div>
                         </div>
                     </div>
@@ -313,7 +267,6 @@ export default function Analyzer() {
                                 <span>Forks: {repo.forks_count}</span>
                                 <span>Watchers: {repo.watchers_count}</span>
                                 <span>Issues: {repo.open_issues_count}</span>
-                                <span>Visibility: {repo.private ? "Private" : "Public"}</span>
                             </div>
 
                             <div className="flex gap-1">
