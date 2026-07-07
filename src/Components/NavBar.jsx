@@ -3,31 +3,34 @@ import Logo from '/Logo-T-C.png'
 
 export default function NavBar() {
     return (
-        <div className='bg-surface w-screen flex items-center justify-between px-6 py-5 mb-12 sticky top-0'>
-            <div className="flex items-center gap-5">
+        <nav className='bg-surface w-full flex items-center justify-between px-6 py-5 mb-12 sticky top-0 z-50'>
+            <NavLink to="/" className="flex items-center gap-5">
                 <div>
-                    <img src={Logo} alt="" className='w-10 object-contain' />
+                    <img src={Logo} alt="DevScope" className='w-10 object-contain' />
                 </div>
                 <div className='text-3xl font-bold'>
-                    <span className='text-primary'>Dev</span><span className="">Scope</span>
+                    <span className='text-primary'>Dev</span><span className="text-blue-400">Scope</span>
                 </div>
-            </div>
-            <div className="flex items-center gap-20">
+            </NavLink>
+            <div className="flex items-center gap-16">
                 <ul className="flex items-center gap-10 ">
 
                     <li  >
-                        <NavLink to="/" className={({ isActive }) => (isActive ? "text-white border-b-3 border-violet-500 pb-1" : "hover:text-primary")}>
+                        <NavLink to="/" className={({ isActive }) => (isActive ? "text-white border-b-2 transition-colors border-blue-500 pb-1" : "hover:text-blue-300")}>
                             Home
                         </NavLink>
                     </li>
 
-                    <li>Features</li>
-                    <li>GitHub</li>
+                    <li  >
+                        <NavLink to="/Compare" className={({ isActive }) => (isActive ? "text-white border-b-2 transition-colors border-blue-500 pb-1" : "hover:text-blue-300")}>
+                            Compare
+                        </NavLink>
+                    </li>
                 </ul>
-                <NavLink to="/Analyzer" className='rounded-full border-3 border-blue-400 px-5 py-2 text-white hover:border-blue-300 transition'>
+                <NavLink to="/Analyzer" className='rounded-full border-2 border-blue-400 px-5 py-2 text-white hover:border-blue-300 transition-colors duration-200'>
                     Analyzer
                 </NavLink>
             </div>
-        </div>
+        </nav>
     );
 }

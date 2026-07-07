@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home.jsx';
+import Compare from "./Components/Compare.jsx";
 import Analyzer from "./Components/Analyzer.jsx";
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Compare" element={<Compare />} />
           <Route path="/Analyzer" element={<Analyzer />} />
         </Routes>
       </BrowserRouter>

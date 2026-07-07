@@ -39,7 +39,7 @@ export default function Home() {
                     }}
                 />
 
-                <button onClick={fetchProfile} className="bg-blue-500 text-white px-6 py-4 rounded-full hover:bg-blue-600">
+                <button onClick={fetchProfile} className="bg-blue-500 text-white px-6 py-4 rounded-full hover:bg-blue-600 hover:cursor-pointer">
                     Analyze
                 </button>
             </div>
