@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Pixelify+Sans:wght@400..700&display=swap');
+
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 @theme {
   --color-surface: #15151B;
@@ -20,7 +21,7 @@
   --color-text-muted: #93a4bd;
 
   --font-mono: "IBM Plex Mono", monospace;
-  --font-base: "DM Sans", sans-serif;
+  --font-base: "Pixelify Sans", sans-serif;;
 }
 
 .react-calendar-heatmap rect.color-empty {
@@ -61,7 +62,31 @@
 }
 
 .bg-hero {
-  background-image: url("./public/hero.jpg");
+  background-image: url("/hero.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.metallic-text {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    #a8c0ff 0%,
+    #2b6696 25%,
+    #a8c0ff 50%,
+    #2b5696 75%,
+    #a8c0ff 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: -200% center;
+  }
 }

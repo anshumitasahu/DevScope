@@ -127,13 +127,13 @@ export default function Analyzer() {
     };
 
     return (
-        <div className="flex flex-col items-center px-8 pt-5">
-            <div className="flex flex-col items-center gap-1 mb-14">
+        <div className="flex flex-col items-center px-8 pt-5 min-h-screen">
+            {/* <div className="flex flex-col items-center gap-1 mb-14">
                 <h1 className="font-semibold text-5xl">
                     <span className="text-primary"> GitHub Profile</span> <span className="text-primary">Analyzer</span>
                 </h1>
                 <p className="text-text-muted text-sm"> Enter a GitHub Username to analyze their profile and repositories </p>
-            </div>
+            </div> */}
             <div className="bg-white w-fit rounded-full mb-10 focus-within:ring-8 focus-within:ring-primary/20">
                 <input
                     type="text"
