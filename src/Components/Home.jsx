@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GitBranch, UserCircle, ChartPieIcon } from "@phosphor-icons/react";
 
 export default function Home() {
     const [username, setUsername] = useState("");
@@ -46,30 +47,34 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-5 mt-24 w-full">
                 <div className="bg-card p-3 border border-blue-400 rounded-lg hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
-                    <div>
-
-                    </div>
-                    <div>
-                        <h1 className="text-blue-100">
+                    <div className="flex items-center gap-2 mb-2">
+                        <GitBranch size={28} className="text-blue-400" weight="regular" />
+                        <h2 className="text-blue-100">
                             Repository Insights
-                        </h1>
-                        <p className="text-text-secondary">
-                            View stars, forks, activity and top repositories.
-                        </p>
+                        </h2>
                     </div>
+                    <p className="text-text-secondary">
+                        View stars, forks, activity and top repositories.
+                    </p>
                 </div>
-                <div className="bg-card p-3 border border-blue-400 rounded-lg hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
-                    <h1 className="text-blue-100">
-                        Developer Profile
-                    </h1>
+                <div className="bg-card p-3 border border-blue-400 rounded-lg hover:-translate-y-1 hover:border-violet-500 transition-all duration-200 ">
+                    <div className="flex items-center gap-2 mb-2">
+                        <UserCircle size={28} className="text-blue-400" weight="regular" />
+                        <h2 className="text-blue-100">
+                            Developer Profile
+                        </h2>
+                    </div>
                     <p className="text-text-secondary">
                         Access profile metrics, followers and account details.
                     </p>
                 </div>
                 <div className="bg-card p-3 border border-blue-400 rounded-lg  hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
-                    <h1 className="text-blue-100">
-                        Language Statistics
-                    </h1>
+                    <div className="flex items-center gap-2 mb-2">
+                        <ChartPieIcon size={28} className="text-blue-400" weight="regular" />
+                        <h2 className="text-blue-100">
+                            Language Statistics
+                        </h2>
+                    </div>
                     <p className="text-text-secondary">
                         Explore language usage with interactive charts.
                     </p>
