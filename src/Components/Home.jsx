@@ -16,16 +16,16 @@ export default function Home() {
 
     return (
         <div className='flex flex-col max-w-6xl mx-auto px-6 items-center'>
-            <div>
-                <div className='text-6xl font-bold max-w-4xl text-center'>
-                    Analyze GitHub Profiles <br /> <span className="text-blue-400">Like</span><span className='text-violet-600'> Never Before.</span>
+            <div className="py-12">
+                <div className='text-7xl font-bold max-w-4xl text-center font-base'>
+                    Analyze GitHub Profiles <br /> <span className="text-white">Like</span><span className='text-primary'> Never Before </span>
                 </div>
-                <div className="text-center py-3 text-mauve-200">
+                <div className="text-center py-3 text-lg text-neutral-300">
                     Get insights into any public GitHub profile with a single search.
                 </div>
             </div>
             <div className="mt-10
-    flex items-center rounded-full bg-white border border-blue-300 transition-all duration-200 focus-within:ring-4 focus-within:ring-blue-500/40 focus-within:border-blue-500">
+    flex items-center rounded-full bg-white border border-white/60 transition-all duration-200 focus-within:ring-4 focus-within:ring-primary/40 focus-within:border-white/60">
                 <input
                     aria-label="GitHub username"
                     type="text"
@@ -40,16 +40,16 @@ export default function Home() {
                     }}
                 />
 
-                <button onClick={fetchProfile} className="bg-blue-500 text-white px-6 py-4 rounded-full hover:bg-blue-600 hover:cursor-pointer">
+                <button onClick={fetchProfile} className="bg-primary text-white px-6 py-4 rounded-full hover:bg-primary hover:cursor-pointer font-bold">
                     Analyze
                 </button>
             </div>
 
             <div className="grid md:grid-cols-3 gap-5 mt-24 w-full">
-                <div className="bg-card p-3 border border-blue-400 rounded-lg hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
-                    <div className="flex items-center gap-2 mb-2">
-                        <GitBranch size={28} className="text-blue-400" weight="regular" />
-                        <h2 className="text-blue-100">
+                <div className="bg-card p-6 border border-white/60 rounded-xl hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
+                    <div className="flex items-center gap-3 mb-3">
+                        <GitBranch size={28} className="text-white" weight="regular" />
+                        <h2 className="text-white">
                             Repository Insights
                         </h2>
                     </div>
@@ -57,10 +57,10 @@ export default function Home() {
                         View stars, forks, activity and top repositories.
                     </p>
                 </div>
-                <div className="bg-card p-3 border border-blue-400 rounded-lg hover:-translate-y-1 hover:border-violet-500 transition-all duration-200 ">
-                    <div className="flex items-center gap-2 mb-2">
-                        <UserCircle size={28} className="text-blue-400" weight="regular" />
-                        <h2 className="text-blue-100">
+                <div className="bg-card p-6 border border-white/60 rounded-xl hover:-translate-y-1 hover:border-violet-500 transition-all duration-200 ">
+                    <div className="flex items-center gap-3 mb-3">
+                        <UserCircle size={28} className="text-white" weight="regular" />
+                        <h2 className="text-white">
                             Developer Profile
                         </h2>
                     </div>
@@ -68,10 +68,10 @@ export default function Home() {
                         Access profile metrics, followers and account details.
                     </p>
                 </div>
-                <div className="bg-card p-3 border border-blue-400 rounded-lg  hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
-                    <div className="flex items-center gap-2 mb-2">
-                        <ChartPieIcon size={28} className="text-blue-400" weight="regular" />
-                        <h2 className="text-blue-100">
+                <div className="bg-card p-6 border border-white/60 rounded-xl  hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
+                    <div className="flex items-center gap-3 mb-3">
+                        <ChartPieIcon size={28} className="text-white" weight="regular" />
+                        <h2 className="text-white">
                             Language Statistics
                         </h2>
                     </div>

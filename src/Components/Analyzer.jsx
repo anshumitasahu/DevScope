@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LanguageChart from "./Piechart";
 import { useSearchParams } from "react-router-dom";
 import { StarIcon, GitForkIcon, CodeIcon, GitBranchIcon, TrophyIcon } from "@phosphor-icons/react";
+import ActivityHeatmap from "./ActivityHeatmap";
 
 
 export default function Analyzer() {
@@ -129,7 +130,7 @@ export default function Analyzer() {
         <div className="flex flex-col items-center px-8 pt-5">
             <div className="flex flex-col items-center gap-1 mb-14">
                 <h1 className="font-semibold text-5xl">
-                    <span className="text-blue-400"> GitHub Profile</span> <span className="text-primary">Analyzer</span>
+                    <span className="text-primary"> GitHub Profile</span> <span className="text-primary">Analyzer</span>
                 </h1>
                 <p className="text-text-muted text-sm"> Enter a GitHub Username to analyze their profile and repositories </p>
             </div>
@@ -156,7 +157,7 @@ export default function Analyzer() {
             </div>
 
             {user && (
-                <div className="flex gap-8 mt-10 mb-20 py-10 w-full items-center border-y border-y-blue-400/30">
+                <div className="flex gap-8 mt-10 mb-20 py-10 w-full items-center border-y border-y-primary/30">
                     <img src={user.avatar_url} alt={user.login} className="rounded-full h-44 w-44 object-cover" />
                     <div className="flex flex-col gap-4">
                         <div>
@@ -180,28 +181,28 @@ export default function Analyzer() {
                     <div className="mb-20">
                         <div className="mb-2 font-semibold text-xl"> Repository Insights</div>
                         <div className="grid grid-cols-4 gap-6">
-                            <div className="flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className="flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
                                 <StarIcon size={28} color="#3584e4" weight="duotone" />
                                 <div>
                                     <p className="text-text-muted mb-2">Total Stars</p>
                                     <p className="font-bold text-xl">{totalStars}</p>
                                 </div>
                             </div>
-                            <div className=" flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className=" flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
                                 <GitForkIcon size={28} color="#3584e4" weight="duotone" />
                                 <div>
                                     <p className="text-text-muted mb-2">Total Forks</p>
                                     <p className="font-bold text-xl">{totalForks}</p>
                                 </div>
                             </div>
-                            <div className="flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className="flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
                                 <CodeIcon size={28} color="#3584e4" />
                                 <div>
                                     <p className="text-text-muted mb-2">Languages Used</p>
                                     <p className="font-bold text-xl">{language}</p>
                                 </div>
                             </div>
-                            <div className="flex gap-5 items-center bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className="flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
                                 <TrophyIcon size={28} color="#3584e4" weight="duotone" />
                                 <div>
                                     <p className="text-text-muted mb-2">  Top Repository</p>
@@ -214,23 +215,26 @@ export default function Analyzer() {
                         <div className="mb-2 font-semibold text-xl">Contribution Insights</div>
                         <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
                             <div className="grid grid-rows gap-6">
-                                <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                                <div className="bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
                                     <p className="text-text-muted mb-2">Account Age</p>
                                     <p className="font-bold text-xl">{years} years {months} months</p>
                                 </div>
-                                <div className="bg-card border-border border-3 px-3 py-4 rounded-lg h-fit">
+                                <div className="bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
                                     <p className="text-text-muted mb-2">Average Stars Per Repository</p>
                                     <p className="font-bold text-xl">{averageStars} </p>
                                 </div>
-                                <div className="bg-card border-border border-3 px-4 py-4 rounded-lg h-fit">
+                                <div className="bg-card border-border/50 border-3 px-4 py-4 rounded-lg h-fit">
                                     <p className="text-text-muted mb-2">Average Forks Per Repository</p>
                                     <p className="font-bold text-xl">{averageForks}</p>
                                 </div>
                             </div>
-                            <div className="bg-card border-border border-3 px-3 py-4 rounded-lg w-full h-fit">
+                            <div className="bg-card border-border/50/50/50/50 border-3 px-3 py-4 rounded-lg w-full h-fit">
                                 <p className="text-text-muted mb-2">Language Chart Card</p>
                                 <LanguageChart data={languageData} />
                             </div>
+
+                            <ActivityHeatmap repos={repos} />
+
                             <div>
                             </div>
                         </div>
@@ -245,7 +249,7 @@ export default function Analyzer() {
                 </div>
                 <div className="grid grid-cols-3 gap-6">
                     {repos.map((repo) => (
-                        <article key={repo.id} className="bg-card border-border border-3 rounded-xl p-6 hover:border-primary">
+                        <article key={repo.id} className="bg-card border-border/50/50/50 border-3 rounded-xl p-6 hover:border-primary">
                             <h3 className="text-2xl font-semibold text-primary">
                                 <a
                                     href={repo.html_url}

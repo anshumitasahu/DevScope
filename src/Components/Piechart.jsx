@@ -14,7 +14,7 @@ export default function LanguageChart({ data }) {
                 cy="50%"
                 innerRadius="60%"
                 outerRadius="80%"
-                fill="#8B5CF6"
+                fill="#517fdb"
                 label={({ name, percent }) =>
                     `${name} ${(percent * 100).toFixed(0)}%`
                 }
