@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CompareForm from "./compare page/CompareForm";
 import CompareProfileCards from "./compare page/CompareProfile";
 import CompareStats from "./compare page/CompareStats";
+import LanguageChart from "./Piechart";
 
 export default function Compare() {
     const [loading, setLoading] = useState(false);
@@ -85,9 +86,6 @@ export default function Compare() {
 
     return (
         <div className="min-h-screen flex flex-col items-center px-8 pt-5 max-w-7xl mx-auto">
-            <div className="text-primary text-4xl">
-                Compare GitHub Profiles
-            </div>
             <div>
                 <CompareForm
                     username1={username1}
@@ -111,6 +109,14 @@ export default function Compare() {
                 )}
             </div>
 
+            <div>
+                {profile1 && profile2 && (
+                    <div className="flex ">
+                        <LanguageChart data={profile1.languageData} />
+                        <LanguageChart data={profile2.languageData} />
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

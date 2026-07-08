@@ -235,8 +235,8 @@ export default function Analyzer() {
                                         <p className="font-bold text-xl">{averageForks}</p>
                                     </div>
                                 </div>
-                                <div className="bg-card border-primary/30 border p-5 rounded-xl w-full">
-                                    <LanguageChart data={languageData} />
+                                <div className="flex justify-center bg-card border-primary/30 border p-5 rounded-xl w-full">
+                                    <LanguageChart data={languageData} className="W-700" />
                                 </div>
                             </div>
                             <ActivityHeatmap repos={repos} />

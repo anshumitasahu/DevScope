@@ -4,7 +4,7 @@ export default function LanguageChart({ data }) {
     console.log(data)
     return (
         <PieChart
-            width={700} height={300} >
+            width={500} height={300} >
 
             <Pie
                 data={data}
