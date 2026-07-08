@@ -8,7 +8,7 @@
   --color-card: black;
 
   --color-primary: #00a6ff;
-  --color-primary-hover: #7647ff;
+  --color-primary-hover: #0099eb;
 
   --color-success: #22C55E;
   --color-warning: #F59E0B;
@@ -21,7 +21,8 @@
   --color-text-muted: #93a4bd;
 
   --font-mono: "IBM Plex Mono", monospace;
-  --font-base: "Pixelify Sans", sans-serif;;
+  --font-base: "Pixelify Sans", sans-serif;
+  ;
 }
 
 .react-calendar-heatmap rect.color-empty {
@@ -46,16 +47,16 @@
 
 @utility dot-grid {
   /* Radial gradient for the background color shift (center to edges) */
-  background-image: 
+  background-image:
     radial-gradient(circle at center, black 0%, black 100%),
     radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-  
+
   /* Size of the grid cells */
   background-size: 100%, 24px 24px;
-  
+
   /* Blend them together (optional, depending on your colors) */
   background-blend-mode: overlay;
-  
+
   /* Ensures it covers the entire viewport */
   width: 100vw;
   height: 100vh;
@@ -70,14 +71,12 @@
 .metallic-text {
   font-size: 4rem;
   font-weight: 900;
-  background: linear-gradient(
-    90deg,
-    #a8c0ff 0%,
-    #2b6696 25%,
-    #a8c0ff 50%,
-    #2b5696 75%,
-    #a8c0ff 100%
-  );
+  background: linear-gradient(90deg,
+      #a8c0ff 0%,
+      #2b6696 25%,
+      #a8c0ff 50%,
+      #2b5696 75%,
+      #a8c0ff 100%);
   background-size: 200% auto;
   color: transparent;
   background-clip: text;

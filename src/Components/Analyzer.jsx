@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import LanguageChart from "./Piechart";
 import { useSearchParams } from "react-router-dom";
-import { StarIcon, GitForkIcon, CodeIcon, GitBranchIcon, TrophyIcon } from "@phosphor-icons/react";
+import { StarIcon, GitForkIcon, CodeIcon, GitBranchIcon, TrophyIcon, ArrowUpRightIcon, ArrowUpIcon } from "@phosphor-icons/react";
 import ActivityHeatmap from "./ActivityHeatmap";
+import BorderBeam from "border-beam";
+import { MetalFx } from "metal-fx";
 
 
 export default function Analyzer() {
@@ -127,37 +129,40 @@ export default function Analyzer() {
     };
 
     return (
-        <div className="flex flex-col items-center px-8 pt-5 min-h-screen">
+        <div className="flex flex-col items-center px-8 pt-5 min-h-screen max-w-5xl mx-auto">
             {/* <div className="flex flex-col items-center gap-1 mb-14">
                 <h1 className="font-semibold text-5xl">
                     <span className="text-primary"> GitHub Profile</span> <span className="text-primary">Analyzer</span>
                 </h1>
                 <p className="text-text-muted text-sm"> Enter a GitHub Username to analyze their profile and repositories </p>
             </div> */}
-            <div className="bg-white w-fit rounded-full mb-10 focus-within:ring-8 focus-within:ring-primary/20">
-                <input
-                    type="text"
-                    placeholder="GitHub username"
-                    value={username}
-                    className="outline-0 text-black px-4 py-2 w-94"
-                    onChange={(e) => {
-                        setIsTyping(true);
-                        setUsername(e.target.value);
-                    }}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            fetchGitHubData();
-                        }
-                    }}
-                />
-
-                <button onClick={fetchGitHubData} disabled={loading} className="text-white bg-primary px-4 py-2 rounded-full hover:cursor-pointer">
-                    {loading ? "Analyzing..." : "Analyze"}
-                </button>
+            <div className="flex gap-4">
+                <BorderBeam size="line" colorVariant="colorful" strength={0.79}>
+                    <div className="bg-white/20 backdrop-blur-md rounded-full">
+                        <input
+                            aria-label="GitHub username"
+                            type="text"
+                            className="w-md px-6 py-4 bg-transparent outline-none text-neutral-50"
+                            placeholder="GitHub username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key == "Enter") {
+                                    fetchGitHubData();
+                                }
+                            }}
+                        />
+                    </div>
+                </BorderBeam>
+                <MetalFx preset="chromatic" variant="circle" strength={1} paused={false}>
+                    <button onClick={fetchGitHubData} className="bg-black/40 text-white p-4 rounded-full hover:bg-black/40 hover:cursor-pointer font-bold">
+                        <ArrowUpRightIcon size={24} />
+                    </button>
+                </MetalFx>
             </div>
 
             {user && (
-                <div className="flex gap-8 mt-10 mb-20 py-10 w-full items-center border-y border-y-primary/30">
+                <div className="flex gap-8 mt-10 mb-20 py-10 w-full items-center border-y border-y-primary/30 backdrop-blur-sm">
                     <img src={user.avatar_url} alt={user.login} className="rounded-full h-44 w-44 object-cover" />
                     <div className="flex flex-col gap-4">
                         <div>
@@ -180,29 +185,29 @@ export default function Analyzer() {
                 <div className="w-full">
                     <div className="mb-20">
                         <div className="mb-2 font-semibold text-xl"> Repository Insights</div>
-                        <div className="grid grid-cols-4 gap-6">
-                            <div className="flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
+                        <div className="grid grid-cols-4 gap-5">
+                            <div className="flex gap-5 items-center bg-card border-primary/30 border p-5 rounded-xl h-fit">
                                 <StarIcon size={28} color="#3584e4" weight="duotone" />
                                 <div>
                                     <p className="text-text-muted mb-2">Total Stars</p>
                                     <p className="font-bold text-xl">{totalStars}</p>
                                 </div>
                             </div>
-                            <div className=" flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className=" flex gap-5 items-center bg-card border-primary/30 border p-5 rounded-xl h-fit">
                                 <GitForkIcon size={28} color="#3584e4" weight="duotone" />
                                 <div>
                                     <p className="text-text-muted mb-2">Total Forks</p>
                                     <p className="font-bold text-xl">{totalForks}</p>
                                 </div>
                             </div>
-                            <div className="flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className="flex gap-5 items-center bg-card border-primary/30 border p-5 rounded-xl h-fit">
                                 <CodeIcon size={28} color="#3584e4" />
                                 <div>
                                     <p className="text-text-muted mb-2">Languages Used</p>
                                     <p className="font-bold text-xl">{language}</p>
                                 </div>
                             </div>
-                            <div className="flex gap-5 items-center bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
+                            <div className="flex gap-5 items-center bg-card border-primary/30 border p-5 rounded-xl">
                                 <TrophyIcon size={28} color="#3584e4" weight="duotone" />
                                 <div>
                                     <p className="text-text-muted mb-2">  Top Repository</p>
@@ -211,32 +216,30 @@ export default function Analyzer() {
                             </div>
                         </div>
                     </div>
-                    <div>
+
+                    <div className="mb-20">
                         <div className="mb-2 font-semibold text-xl">Contribution Insights</div>
-                        <div className="grid lg:grid-cols-[2fr_1fr] gap-8">
-                            <div className="grid grid-rows gap-6">
-                                <div className="bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
-                                    <p className="text-text-muted mb-2">Account Age</p>
-                                    <p className="font-bold text-xl">{years} years {months} months</p>
+                        <div className="grid lg:grid-rows gap-8">
+                            <div className="flex gap-8">
+                                <div className="grid grid-rows gap-8 w-1/4 h-fit">
+                                    <div className="bg-card border-primary/30 border p-5 rounded-xl">
+                                        <p className="text-text-muted mb-2">Account Age</p>
+                                        <p className="font-bold text-xl">{years}.{months} years</p>
+                                    </div>
+                                    <div className="bg-card border-primary/30 border p-5 rounded-xl">
+                                        <p className="text-text-muted mb-2">Average Stars</p>
+                                        <p className="font-bold text-xl">{averageStars} </p>
+                                    </div>
+                                    <div className="bg-card border-primary/30 border px-4 py-4 rounded-xl">
+                                        <p className="text-text-muted mb-2">Average Forks</p>
+                                        <p className="font-bold text-xl">{averageForks}</p>
+                                    </div>
                                 </div>
-                                <div className="bg-card border-border/50 border-3 px-3 py-4 rounded-lg h-fit">
-                                    <p className="text-text-muted mb-2">Average Stars Per Repository</p>
-                                    <p className="font-bold text-xl">{averageStars} </p>
-                                </div>
-                                <div className="bg-card border-border/50 border-3 px-4 py-4 rounded-lg h-fit">
-                                    <p className="text-text-muted mb-2">Average Forks Per Repository</p>
-                                    <p className="font-bold text-xl">{averageForks}</p>
+                                <div className="bg-card border-primary/30 border p-5 rounded-xl w-full">
+                                    <LanguageChart data={languageData} />
                                 </div>
                             </div>
-                            <div className="bg-card border-border/50/50/50/50 border-3 px-3 py-4 rounded-lg w-full h-fit">
-                                <p className="text-text-muted mb-2">Language Chart Card</p>
-                                <LanguageChart data={languageData} />
-                            </div>
-
                             <ActivityHeatmap repos={repos} />
-
-                            <div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -247,9 +250,9 @@ export default function Analyzer() {
                         Repositories: {repos.length}
                     </h2>
                 </div>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 gap-5">
                     {repos.map((repo) => (
-                        <article key={repo.id} className="bg-card border-border/50/50/50 border-3 rounded-xl p-6 hover:border-primary">
+                        <article key={repo.id} className="bg-card border-primary/30 border rounded-2xl p-10 hover:border-primary">
                             <h3 className="text-2xl font-semibold text-primary">
                                 <a
                                     href={repo.html_url}
@@ -260,39 +263,13 @@ export default function Analyzer() {
                                 </a>
                             </h3>
 
-                            <p className="text-text-muted mb-1">{truncate(repo.description, 35)}</p>
+                            <p className="text-text/60 mb-1">{truncate(repo.description, 24)}</p>
 
-                            <div className="mt-3 text-lg">
-                                <span>•{repo.language || "N/A"}</span>
+                            <div className="flex gap-5 text-text text-sm mb-2 mt-3">
+                                <span>• Stars: {repo.stargazers_count}</span>
+                                <span>• Forks: {repo.forks_count}</span>
+                                <span>• {repo.language || "N/A"}</span>
                             </div>
-
-                            <div className="flex gap-5 text-text-muted text-sm mb-2 mt-3">
-                                <span>Stars: {repo.stargazers_count}</span>
-                                <span>Forks: {repo.forks_count}</span>
-                                <span>Watchers: {repo.watchers_count}</span>
-                                <span>Issues: {repo.open_issues_count}</span>
-                            </div>
-
-                            <div className="flex gap-1">
-                                <span className="border-r border-r-white pr-2">
-                                    Created:{" "}
-                                    {new Date(repo.created_at).toLocaleDateString()}
-                                </span>
-
-                                <span className="border-l border-l-white pl-2">
-                                    Updated:{" "}
-                                    {new Date(repo.updated_at).toLocaleDateString()}
-                                </span>
-                            </div>
-
-
-                            {repo.license && (
-                                <p className="text-xs mt-1 mb-1">
-                                    License: {repo.license.name}
-                                </p>
-                            )}
-
-
                             <div className="flex justify-between mt-3">
                                 <a
                                     href={repo.html_url}

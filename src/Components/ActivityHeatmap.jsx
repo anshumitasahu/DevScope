@@ -19,9 +19,7 @@ export default function ActivityHeatmap({ repos }) {
     );
 
     return (
-        <div className="bg-card border-border border-3 rounded-lg p-5">
-            <p className="text-text-muted"> Repository Activity</p>
-             <p className="text-gray-400 mb-2">(Visualized using the latest repository update dates)</p>
+        <div className="bg-card border-primary/50 border rounded-lg p-5">
             <CalendarHeatmap
                 startDate={
                     new Date(
