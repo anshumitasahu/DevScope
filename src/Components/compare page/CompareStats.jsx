@@ -1,3 +1,7 @@
+import {
+    StarIcon, GitForkIcon, CodeIcon, FolderOpenIcon, UsersIcon, UsersThreeIcon
+} from "@phosphor-icons/react";
+
 export default function CompareStats({ profile1, profile2 }) {
 
     function getStats(profile) {
@@ -17,7 +21,7 @@ export default function CompareStats({ profile1, profile2 }) {
 
         const accountAge = Math.floor(
             (Date.now() - joined.getTime()) /
-            (1000 * 60 * 60 * 24 * 365.25)
+            (1000 * 60 * 60 * 24 * 565.25)
         );
 
         const languagesUsed = profile.languageData.length;
@@ -39,22 +43,58 @@ export default function CompareStats({ profile1, profile2 }) {
 
     return (
         <div className="w-full">
-            <div className="flex gap-5 mt-5 mb-20 w-full">
+            <div className="flex gap-5 mt-5 mb-15 w-full">
                 <div className="py-10 items-center border-y border-y-primary/30 backdrop-blur-sm w-md text-white/80">
-                    <p>• Total Stars: {stats1.stars}</p>
-                    <p>• Total Forks: {stats1.forks}</p>
-                    <p>• Languages Used: {stats1.languages}</p>
-                    <p>• Followers: {stats1.followers}</p>
-                    <p>• Following: {stats1.following}</p>
-                    <p>• Total Repositories: {stats1.publicRepos}</p>
+                    <div className="flex gap-5">
+                        <StarIcon size={24} />
+                        <p>Total Stars: {stats1.stars}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <GitForkIcon size={24} />
+                        <p>Total Forks: {stats1.forks}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <CodeIcon size={24} />
+                        <p>Languages Used: {stats1.languages}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <UsersIcon size={24} />
+                        <p>Followers: {stats1.followers}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <UsersThreeIcon size={24} />
+                        <p>Following: {stats1.following}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <FolderOpenIcon size={24} />
+                        <p>Total Repositories: {stats1.publicRepos}</p>
+                    </div>
                 </div>
                 <div className="py-10 items-center border-y border-y-primary/30 backdrop-blur-sm w-md text-white/80">
-                    <p>• Total Stars: {stats2.stars}</p>
-                    <p>• Total Forks: {stats2.forks}</p>
-                    <p>• Languages Used: {stats2.languages}</p>
-                    <p>• Followers: {stats2.followers}</p>
-                    <p>• Following: {stats2.following}</p>
-                    <p>• Total Repositories: {stats2.publicRepos}</p>
+                    <div className="flex gap-3">
+                        <StarIcon size={24} />
+                        <p>Total Stars: {stats2.stars}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <GitForkIcon size={24} />
+                        <p>Total Forks: {stats2.forks}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <CodeIcon size={24} />
+                        <p>Languages Used: {stats2.languages}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <UsersIcon size={24} />
+                        <p>Followers: {stats2.followers}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <UsersThreeIcon size={24} />
+                        <p>Following: {stats2.following}</p>
+                    </div>
+                    <div className="flex gap-5">
+                        <FolderOpenIcon size={24} />
+                        <p>Total Repositories: {stats2.publicRepos}</p>
+                    </div>
                 </div>
             </div>
         </div>

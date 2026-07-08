@@ -4,7 +4,7 @@ export default function CompareProfileCards({ profile }) {
     const { user } = profile;
 
     return (
-        <div className="flex gap-5 mt-10 mb-20 py-10 w-full items-center border-y border-y-primary/30 backdrop-blur-sm">
+        <div className="flex gap-5 mt-10 mb-15 py-10 w-full items-center border-y border-y-primary/30 backdrop-blur-sm">
             <img src={user.avatar_url} alt={user.login} className="rounded-full h-44 w-44 object-cover" />
             <div className="flex flex-col gap-4">
                 <div>

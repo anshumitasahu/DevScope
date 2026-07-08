@@ -253,7 +253,7 @@ export default function Analyzer() {
                 <div className="grid grid-cols-2 gap-5">
                     {repos.map((repo) => (
                         <article key={repo.id} className="bg-card border-primary/30 border rounded-2xl p-10 hover:border-primary">
-                            <h3 className="text-2xl font-semibold text-primary">
+                            <h3 className="text-2xl font-semibold text-primary mb-3">
                                 <a
                                     href={repo.html_url}
                                     target="_blank"
@@ -270,12 +270,12 @@ export default function Analyzer() {
                                 <span>• Forks: {repo.forks_count}</span>
                                 <span>• {repo.language || "N/A"}</span>
                             </div>
-                            <div className="flex justify-between mt-3">
+                            <div className="flex justify-between mt-7 text-lg">
                                 <a
                                     href={repo.html_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-primary px-4 py-2 rounded-full hover:bg-primary-hover"
+                                    className="bg-primary font-bold px-4 py-2 rounded-full hover:bg-primary-hover"
                                 >
                                     View Repo
                                 </a>

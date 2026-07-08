@@ -52,7 +52,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-5 mt-24 w-full">
-                <div className="bg-card/30 p-6 border border-white/60 rounded-2xl hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
+                <div className="bg-card/30 p-6 border border-white/60 rounded-2xl hover:-translate-y-1 hover:border-primary-hover transition-all duration-200">
                     <div className="flex items-center gap-3 mb-3">
                         <GitBranch size={28} className="text-white" weight="regular" />
                         <h2 className="text-white">
@@ -63,7 +63,7 @@ export default function Home() {
                         View stars, forks, activity and top repositories.
                     </p>
                 </div>
-                <div className="bg-card/30 p-6 border border-white/60 rounded-2xl hover:-translate-y-1 hover:border-violet-500 transition-all duration-200 ">
+                <div className="bg-card/30 p-6 border border-white/60 rounded-2xl hover:-translate-y-1 hover:border-primary-hover transition-all duration-200 ">
                     <div className="flex items-center gap-3 mb-3">
                         <UserCircle size={28} className="text-white" weight="regular" />
                         <h2 className="text-white">
@@ -74,7 +74,7 @@ export default function Home() {
                         Access profile metrics, followers and account details.
                     </p>
                 </div>
-                <div className="bg-card/30 p-6 border border-white/60 rounded-2xl  hover:-translate-y-1 hover:border-violet-500 transition-all duration-200">
+                <div className="bg-card/30 p-6 border border-white/60 rounded-2xl  hover:-translate-y-1 hover:border-primary-hover transition-all duration-200">
                     <div className="flex items-center gap-3 mb-3">
                         <ChartPieIcon size={28} className="text-white" weight="regular" />
                         <h2 className="text-white">
