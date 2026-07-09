@@ -11,6 +11,12 @@ export default function ActivityHeatmap({ repos }) {
         activity[date] = (activity[date] || 0) + 1;
     });
 
+    //  const values = [
+    //     { date: "2026-07-01", count: 1 },
+    //     { date: "2026-07-02", count: 2 },
+    //     { date: "2026-07-03", count: 3 },
+    // ];
+
     const values = Object.entries(activity).map(
         ([date, count]) => ({
             date,
@@ -18,8 +24,11 @@ export default function ActivityHeatmap({ repos }) {
         })
     );
 
+
+
+    console.log(values);
     return (
-        <div className="bg-card border-primary/50 border rounded-lg p-5">
+        <div className="bg-card border-primary/50 border rounded-lg p-5 h-full w-full">
             <CalendarHeatmap
                 startDate={
                     new Date(

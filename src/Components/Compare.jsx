@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import CompareForm from "./compare page/CompareForm";
 import CompareProfileCards from "./compare page/CompareProfile";
 import CompareStats from "./compare page/CompareStats";
 import LanguageChart from "./Piechart";
+import ActivityHeatmap from "./ActivityHeatmap";
 
 export default function Compare() {
     const [loading, setLoading] = useState(false);
@@ -114,6 +114,15 @@ export default function Compare() {
                     <div className="flex ">
                         <LanguageChart data={profile1.languageData} />
                         <LanguageChart data={profile2.languageData} />
+                    </div>
+                )}
+            </div>
+
+            <div className="w-full h-full mt-10 mb-5">
+                {profile1 && profile2 && (
+                    <div className="flex gap-5">
+                        <ActivityHeatmap repos={profile1.repos} />
+                        <ActivityHeatmap repos={profile2.repos} />
                     </div>
                 )}
             </div>
