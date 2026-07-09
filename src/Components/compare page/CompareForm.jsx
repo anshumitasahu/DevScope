@@ -33,11 +33,9 @@ export default function CompareForm({
                     </div>
                 </BorderBeam>
             </div>
-            <MetalFx preset="chromatic" variant="circle" strength={1} paused={false}>
-                <button onClick={onCompare} className="bg-black/40 text-white p-4 rounded-full hover:bg-black/40 hover:cursor-pointer font-bold">
-                    Compare
-                </button>
-            </MetalFx>
+            <button onClick={onCompare} className="bg-black/40 text-white p-4 rounded-full border border-primary hover:bg-black/40 hover:cursor-pointer font-bold">
+                Compare
+            </button>
         </div>
     );
 }
