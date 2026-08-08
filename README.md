@@ -49,7 +49,7 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 <img src="/public/Compare-2.png" width="45%"/>
 </p>
 
-## Other Feats
+### Other Feats
 
 <p align="center">
 <img src="/public/Alert.png" width="45%"/>
