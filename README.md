@@ -22,9 +22,10 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 * GitHub REST API
 * Recharts
 * Vite
+* GeckoFX
 
 ## Screenshots
-
+<img src="/public/Home-Page.png" classname="w-50>
 
 ## Why I Built This
 
