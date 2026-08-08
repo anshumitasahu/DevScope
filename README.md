@@ -30,23 +30,31 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 
 ### Profile Overview
 
+<p align="center">
 <img src="/public/Home-Page.png" width="45%"/>
+</p>
 
 ### Repository Explorer
 
+<p align="center">
 <img src="/public/Analyzer.png" width="45%"/>
 <img src="/public/Analyzer-2.png" width="45%"/>
 <img src="/public/Analyzer-3.png" width="45%"/>
+</p>
 
 ### Profile Comparison
 
+<p align="center">
 <img src="/public/compare.png" width="45%"/>
 <img src="/public/Compare-2.png" width="45%"/>
+</p>
 
 ## Other Feats
 
+<p align="center">
 <img src="/public/Alert.png" width="45%"/>
 <img src="/public/loading.png" width="45%"/>
+</p>
 
 
 ## Why I Built This
