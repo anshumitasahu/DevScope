@@ -1,47 +1,50 @@
-<img width="1440" height="762" alt="image" src="https://github.com/user-attachments/assets/1488983c-6fd4-47df-8065-65bcf5ff6915" />
-
 # DevScope
 
-DevScope is a GitHub profile analyzer that transforms public GitHub data into a clean, interactive dashboard. Instead of presenting raw API responses, it aggregates developer statistics, repository information, and language usage into meaningful visual insights.
+DevScope is a GitHub profile analyzer that lets you search for a GitHub user and see their profile, repos, languages, and activity in one place.
 
-Built with React and Tailwind CSS, the project focuses on simplicity, performance, and an intuitive user experience.
+Instead of going through different sections of a GitHub profile, DevScope puts the useful information into a simple interactive dashboard with charts and visualizations.
 
 ## Features
 
-- GitHub profile search
-- Developer profile overview
-- Repository statistics
-- Language distribution visualization
-- Repository explorer
-- Responsive interface
-- Live data fetched from the GitHub REST API
+* Search GitHub profiles
+* View profile info and stats
+* Explore repos
+* View language distribution
+* Compare two GitHub profiles
+* Activity heatmap based on repository pushes
+* Fetches live data using the GitHub REST API
 
 ## Tech Stack
 
-- React
-- Tailwind CSS
-- JavaScript (ES6+)
-- GitHub REST API
-- Recharts
-- Vite
+* React
+* Tailwind CSS
+* JavaScript (ES6+)
+* GitHub REST API
+* Recharts
+* Vite
 
-## Motivation
+## Screenshots
 
-GitHub exposes a large amount of useful information, but much of it is scattered across different pages. DevScope brings that information together into a single dashboard, making it easier to understand a developer's profile, activity, and technology stack at a glance.
+
+## Why I Built This
+
+I wanted to build something that makes GitHub profile data easier to look at and understand.
+
+GitHub already provides a lot of this information, but it's spread across different parts of a profile. DevScope brings it together into one dashboard so you can get a quick overview of a developer's work, repos, languages, and activity.
 
 ## Installation
 
 ```bash
 git clone https://github.com/anshumitasahu/DevScope
 
-cd devscope
+cd DevScope
 
 bun install
 
 bun dev
 ```
 
-or
+Or, if you're using npm:
 
 ```bash
 npm install
@@ -50,24 +53,10 @@ npm run dev
 
 ## Environment Variables
 
-Create a `.env` file in the project root.
+Create a `.env` file in the project root:
 
 ```env
 VITE_GITHUB_TOKEN=your_github_personal_access_token
 ```
 
-A GitHub Personal Access Token is recommended to avoid API rate limits.
-
-## Future Improvements
-
-- Contribution graph
-- Commit activity analytics
-- Repository filtering and sorting
-- Dark/Light theme
-- Export analytics
-- Organization support
-- Developer comparison
-
-## License
-
-This project is open source and available under the MIT License.
+A GitHub Personal Access Token is recommended to avoid GitHub API rate limits.

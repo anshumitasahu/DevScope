@@ -4,6 +4,7 @@ import CompareProfileCards from "./compare page/CompareProfile";
 import CompareStats from "./compare page/CompareStats";
 import LanguageChart from "./Piechart";
 import ActivityHeatmap from "./ActivityHeatmap";
+import Clock from "../components/fx/Clock";
 
 export default function Compare() {
     const [loading, setLoading] = useState(false);
@@ -80,52 +81,55 @@ export default function Compare() {
         }
     }
 
-
-
-
-
     return (
         <div className="min-h-screen flex flex-col items-center px-8 pt-5 max-w-7xl mx-auto">
-            <div>
-                <CompareForm
-                    username1={username1}
-                    username2={username2}
-                    setUsername1={setUsername1}
-                    setUsername2={setUsername2}
-                    onCompare={compareUsers}
-                />
-            </div>
-            <div className="grid grid-cols-2 gap-8 mt-10">
-                <CompareProfileCards profile={profile1} />
-                <CompareProfileCards profile={profile2} />
-            </div>
+            {
+                loading ? <Clock className="w-50 mt-20"/> : (
+                    <>
+                        <div>
+                            <CompareForm
+                                username1={username1}
+                                username2={username2}
+                                setUsername1={setUsername1}
+                                setUsername2={setUsername2}
+                                onCompare={compareUsers}
+                            />
+                        </div>
+                        <div className="grid grid-cols-2 gap-8 mt-10">
+                            <CompareProfileCards profile={profile1} />
+                            <CompareProfileCards profile={profile2} />
+                        </div>
 
-            <div>
-                {profile1 && profile2 && (
-                    <CompareStats
-                        profile1={profile1}
-                        profile2={profile2}
-                    />
-                )}
-            </div>
+                        <div>
+                            {profile1 && profile2 && (
+                                <CompareStats
+                                    profile1={profile1}
+                                    profile2={profile2}
+                                />
+                            )}
+                        </div>
 
-            <div>
-                {profile1 && profile2 && (
-                    <div className="flex ">
-                        <LanguageChart data={profile1.languageData} />
-                        <LanguageChart data={profile2.languageData} />
-                    </div>
-                )}
-            </div>
+                        <div>
+                            {profile1 && profile2 && (
+                                <div className="flex ">
+                                    <LanguageChart data={profile1.languageData} />
+                                    <LanguageChart data={profile2.languageData} />
+                                </div>
+                            )}
+                        </div>
 
-            <div className="w-full h-full mt-10 mb-5">
-                {profile1 && profile2 && (
-                    <div className="flex gap-5">
-                        <ActivityHeatmap repos={profile1.repos} />
-                        <ActivityHeatmap repos={profile2.repos} />
-                    </div>
-                )}
-            </div>
+                        <div className="w-full h-full mt-10 mb-5">
+                            {profile1 && profile2 && (
+                                <div className="flex gap-5">
+                                    <ActivityHeatmap repos={profile1.repos} />
+                                    <ActivityHeatmap repos={profile2.repos} />
+                                </div>
+                            )}
+                        </div>
+                    </>
+                )
+            }
+
         </div>
     )
 }
