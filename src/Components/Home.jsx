@@ -55,35 +55,23 @@ export default function Home() {
                 <div className="bg-card/30 p-6 border border-white/60 rounded-2xl hover:-translate-y-1 hover:border-primary-hover transition-all duration-200">
                     <div className="flex items-center gap-3 mb-3">
                         <GitBranch size={28} className="text-white" weight="regular" />
-                        <h2 className="text-white">
-                            Repository Insights
-                        </h2>
+                        <h2 className="text-white">Repository Insights</h2>
                     </div>
-                    <p className="text-neutral-400">
-                        View stars, forks, activity and top repositories.
-                    </p>
+                    <p className="text-neutral-400">View stars, forks, activity and top repositories.</p>
                 </div>
                 <div className="bg-card/30 p-6 border border-white/60 rounded-2xl hover:-translate-y-1 hover:border-primary-hover transition-all duration-200 ">
                     <div className="flex items-center gap-3 mb-3">
                         <UserCircle size={28} className="text-white" weight="regular" />
-                        <h2 className="text-white">
-                            Developer Profile
-                        </h2>
+                        <h2 className="text-white">Developer Profile</h2>
                     </div>
-                    <p className="text-neutral-400">
-                        Access profile metrics, followers and account details.
-                    </p>
+                    <p className="text-neutral-400">Access profile metrics, followers and account details.</p>
                 </div>
                 <div className="bg-card/30 p-6 border border-white/60 rounded-2xl  hover:-translate-y-1 hover:border-primary-hover transition-all duration-200">
                     <div className="flex items-center gap-3 mb-3">
                         <ChartPieIcon size={28} className="text-white" weight="regular" />
-                        <h2 className="text-white">
-                            Language Statistics
-                        </h2>
+                        <h2 className="text-white">Language Statistics</h2>
                     </div>
-                    <p className="text-neutral-400">
-                        Explore language usage with interactive charts.
-                    </p>
+                    <p className="text-neutral-400"> Explore language usage with interactive charts.</p>
                 </div>
             </div>
         </div>

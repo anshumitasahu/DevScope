@@ -1,11 +1,9 @@
 import { Pie, PieChart } from 'recharts';
 
 export default function LanguageChart({ data }) {
-    console.log(data)
     return (
         <PieChart
             width={500} height={300} >
-
             <Pie
                 data={data}
                 nameKey="name"
@@ -19,8 +17,6 @@ export default function LanguageChart({ data }) {
                     `${name} ${(percent * 100).toFixed(0)}%`
                 }
             />
-            {/* <Tooltip defaultIndex={defaultIndex} /> */}
-            {/* <RechartsDevtools /> */}
         </PieChart>
     );
 }

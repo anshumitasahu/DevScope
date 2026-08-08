@@ -14,7 +14,6 @@ export default function NavBar() {
             </NavLink>
             <div className="flex items-center gap-16">
                 <ul className="flex items-center gap-10 ">
-
                     <li  >
                         <NavLink to="/" className={({ isActive }) => (isActive ? "text-white border-b-2 transition-colors border-primary pb-1" : "hover:text-primary")}>
                             Home
