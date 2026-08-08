@@ -1,4 +1,6 @@
 # DevScope
+<img src="/public/Banner-DevScope.png">
+
 
 DevScope is a GitHub profile analyzer that lets you search for a GitHub user and see their profile, repos, languages, and activity in one place.
 
