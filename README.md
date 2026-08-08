@@ -28,8 +28,6 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 
 ## Screenshots
 
-## Screenshots
-
 ### Profile Overview
 
 ![Profile Overview](/public/Home-Page.png)
