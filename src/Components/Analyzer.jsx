@@ -29,7 +29,7 @@ export default function Analyzer() {
     }, [query]);
 
     async function fetchGitHubData(searchUsername = username) {
-        if (!searchUsername.trim()) return;
+        if (!searchUsername.trim()) return (<div> loading </div>);
 
         try {
             setLoading(true);
@@ -134,7 +134,6 @@ export default function Analyzer() {
             ? text.slice(0, maxLength) + "..."
             : text;
     };
-
     return (
         <div className="flex flex-col items-center px-8 pt-5 min-h-screen max-w-5xl mx-auto">
             <div className="flex gap-4">
@@ -246,56 +245,51 @@ export default function Analyzer() {
                 </div>
             )}
             <div>
-
+                <div className="mb-2 font-semibold text-xl">
+                    <h2> Repositories: {repos.length} </h2>
+                </div>
                 <div className="grid grid-cols-2 gap-5">
                     {repos.map((repo) => (
-                        <div>
-                            <div className="mb-2 font-semibold text-xl">
-                                <h2>
-                                    Repositories: {repos.length}
-                                </h2>
+                        <article key={repo.id} className="bg-card border-primary/30 border rounded-2xl p-10 hover:border-primary">
+                            <h3 className="text-2xl font-semibold text-primary mb-3">
+                                <a
+                                    href={repo.html_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {repo.name}
+                                </a>
+                            </h3>
+
+                            <p className="text-text/60 mb-1">{truncate(repo.description, 24)}</p>
+
+                            <div className="flex gap-5 text-text text-sm mb-2 mt-3">
+                                <span>• Stars: {repo.stargazers_count}</span>
+                                <span>• Forks: {repo.forks_count}</span>
+                                <span>• {repo.language || "N/A"}</span>
                             </div>
-                            <article key={repo.id} className="bg-card border-primary/30 border rounded-2xl p-10 hover:border-primary">
-                                <h3 className="text-2xl font-semibold text-primary mb-3">
+                            <div className="flex justify-between mt-7 text-lg">
+                                <a
+                                    href={repo.html_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-primary font-bold px-4 py-2 rounded-full hover:bg-primary-hover"
+                                >
+                                    View Repo
+                                </a>
+
+                                {repo.homepage && (
                                     <a
-                                        href={repo.html_url}
+                                        href={repo.homepage}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        className="border-primary border-2 px-4 py-2 rounded-full hover:border-primary-hover"
                                     >
-                                        {repo.name}
+                                        Live Demo
                                     </a>
-                                </h3>
-
-                                <p className="text-text/60 mb-1">{truncate(repo.description, 24)}</p>
-
-                                <div className="flex gap-5 text-text text-sm mb-2 mt-3">
-                                    <span>• Stars: {repo.stargazers_count}</span>
-                                    <span>• Forks: {repo.forks_count}</span>
-                                    <span>• {repo.language || "N/A"}</span>
-                                </div>
-                                <div className="flex justify-between mt-7 text-lg">
-                                    <a
-                                        href={repo.html_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-primary font-bold px-4 py-2 rounded-full hover:bg-primary-hover"
-                                    >
-                                        View Repo
-                                    </a>
-
-                                    {repo.homepage && (
-                                        <a
-                                            href={repo.homepage}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="border-primary border-2 px-4 py-2 rounded-full hover:border-primary-hover"
-                                        >
-                                            Live Demo
-                                        </a>
-                                    )}
-                                </div>
-                            </article>
-                        </div>
+                                )}
+                            </div>
+                        </article>
                     ))}
                 </div>
             </div>
