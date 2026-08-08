@@ -25,7 +25,7 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 * GeckoFX
 
 ## Screenshots
-<img src="/public/Home-Page.png" classname="w-50>
+<img src="/public/Home-Page.png" classname="w-50">
 
 ## Why I Built This
 
