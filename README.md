@@ -25,7 +25,38 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 * GeckoFX
 
 ## Screenshots
+
+## Screenshots
+
+### Profile Overview
+
+![Profile Overview](/public/Home-Page.png)
+
+### Repository Explorer
+
+![Repository Explorer](/public/Analyzer.png)
+![Repo Stats](/public/Analyzer-2.png)
+![Repo](/public/Analyzer-3.png)
+
+### Profile Comparison
+
+![Profile Comparison](/public/compare.png)
+![Profile Comparison Stats](/public/Compare-2.png)
+
+## Other Feats
+
+![Alert](/public/Alert.png)
+![Loading](/public/loading.png)
+
+
 <img src="/public/Home-Page.png" classname="w-50">
+<img src="/public/compare.png" classname="w-50"/>
+<img src="/public/Compare-2.png" classname="w-50"/>
+<img src="/public/Analyzer.png" classname="w-50"/>
+<img src="/public/Analyzer-2.png" classname="w-50"/>
+<img src="/public/Analyzer-3.png" classname="w-50"/>
+<img src="/public/Alert.png" classname="w-50"/>
+<img src="/public/loading.png" classname="w-50"/>
 
 ## Why I Built This
 
