@@ -84,7 +84,7 @@ export default function Compare() {
     return (
         <div className="min-h-screen flex flex-col items-center px-8 pt-5 max-w-7xl mx-auto">
             {
-                loading ? <Clock className="w-50 mt-20"/> : (
+                loading ? <Clock className="w-50 mt-20" /> : (
                     <>
                         <div>
                             <CompareForm
