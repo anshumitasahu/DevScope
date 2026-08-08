@@ -49,15 +49,6 @@ Instead of going through different sections of a GitHub profile, DevScope puts t
 ![Loading](/public/loading.png)
 
 
-<img src="/public/Home-Page.png" classname="w-50">
-<img src="/public/compare.png" classname="w-50"/>
-<img src="/public/Compare-2.png" classname="w-50"/>
-<img src="/public/Analyzer.png" classname="w-50"/>
-<img src="/public/Analyzer-2.png" classname="w-50"/>
-<img src="/public/Analyzer-3.png" classname="w-50"/>
-<img src="/public/Alert.png" classname="w-50"/>
-<img src="/public/loading.png" classname="w-50"/>
-
 ## Why I Built This
 
 I wanted to build something that makes GitHub profile data easier to look at and understand.
